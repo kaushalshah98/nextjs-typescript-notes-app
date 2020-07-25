@@ -27,7 +27,7 @@ const EditNote = ({ note }: { note: INotes }) => {
   const updateNote = async () => {
     try {
       const res = await fetch(
-        `http://localhost:8080/api/notes/${router.query.id}`,
+        `http://localhost:3000/api/notes/${router.query.id}`,
         {
           method: 'PUT',
           headers: {
@@ -111,7 +111,7 @@ const EditNote = ({ note }: { note: INotes }) => {
 };
 
 EditNote.getInitialProps = async ({ query: { id } }: { query: { id: string } }) => {
-  const res = await fetch(`http://localhost:8080/api/notes/${id}`);
+  const res = await fetch(`http://localhost:3000/api/notes/${id}`);
   const { data } = await res.json();
 
   return { note: data };
